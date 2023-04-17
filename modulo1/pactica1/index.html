@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio de practica 1</title>
+</head>
+<body>
+    <img src="" id="bobesponja" width="180">
+
+
+
+    <script>
+        console.log('About to featch Bob Esponja')
+
+        catchbob()
+        .then(response => {
+            console.log('yay');
+        })
+        .catch(error => {
+            console.log('Error!');
+            console.log(error);
+        });
+
+        async function catchbob() {
+            const response = await fetch('bobesponja.jpg');
+            const blob = await response.blob();
+            document.getElementById('bobesponja').src = URL.createObjectURL(blob);
+        }
+        
+       
+    </script>
+</body>
+</html>
